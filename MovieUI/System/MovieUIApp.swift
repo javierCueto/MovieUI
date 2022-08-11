@@ -10,11 +10,11 @@ import SwiftUI
 @main
 struct MovieUIApp: App {
     let persistenceController = PersistenceController.shared
+    let appFactory = AppFactoryImpl()
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            appFactory.makeLogin()
         }
     }
 }

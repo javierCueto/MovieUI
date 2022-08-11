@@ -15,6 +15,56 @@ struct ContentView: View {
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
         animation: .default)
     private var items: FetchedResults<Item>
+    
+    let url = URL(string: "https://jsonplaceholder.typicode.com/users")
+    
+    init() {
+        call()
+    }
+    
+    private func call() {
+        Task {
+            let data = await fetch()
+            switch data {
+                
+            case .success(let response):
+                print(response)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    struct User: Decodable {
+        let id: Int
+    }
+    
+    private func fetch() async -> Result<[User], Error>{
+
+        
+        await withCheckedContinuation { continuation in
+            guard let url = url else {
+                return continuation.resume(returning: Result.failure(URLError(.badServerResponse)))
+            }
+
+                let dataTask = URLSession.shared.dataTask(with: url) { data, response, error in
+                    guard let data = data else {
+                        return continuation.resume(returning: Result.failure(URLError(.badServerResponse)))
+                    }
+                    
+                    do {
+                        let users = try JSONDecoder().decode([User].self,from: data)
+                        continuation.resume(returning: Result.success(users))
+                    }catch {
+                        return continuation.resume(returning: Result.failure(URLError(.badServerResponse)))
+                    }
+            
+                }
+ 
+            dataTask.resume()
+        }
+       
+    }
 
     var body: some View {
         NavigationView {
