@@ -27,6 +27,7 @@ import UIKit
     @Published var showMessage: String = ""
     @Published var showingAlertModal: Bool = false
     @Published var buttonDisabled: Bool = true
+    @Published var goToHome: Bool = false
     
     private var validEmail = false
     
@@ -40,6 +41,8 @@ import UIKit
         
         Task {
             let response = await loginUseCase.execute(password: password, email: email)
+    
+            goToHome = true
             showingModal = false
             showingAlertModal = !response.valid
             showMessage = response.message

@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+//TODO: remove magic numbers and reuse views
+
 struct LoginView: View {
     @StateObject var viewModel = LoginViewModel()
     
@@ -42,63 +44,67 @@ struct LoginView: View {
                 
             }
             
-            VStack {
-                Spacer()
-                Text("Movie UI")
-                    .foregroundColor(.red)
-                    .font(.title)
-                Group {
-                    ZStack(alignment: .leading) {
-                        if viewModel.email.isEmpty {
-                            Text("Email")
-                                .foregroundColor(.black)
-                                .opacity(0.4)
+            NavigationView {
+                
+                VStack {
+                    Spacer()
+                    Text("Movie UI")
+                        .foregroundColor(.red)
+                        .font(.title)
+                    Group {
+                        ZStack(alignment: .leading) {
+                            if viewModel.email.isEmpty {
+                                Text("Email")
+                                    .foregroundColor(.black)
+                                    .opacity(0.4)
+                            }
+                            TextField("", text: $viewModel.email)
+                                .keyboardType(.emailAddress)
+                            
                         }
-                        TextField("", text: $viewModel.email)
-                            .keyboardType(.emailAddress)
-                 
-                    }
-                    .frame(maxHeight: 40)
-                    .padding(.horizontal)
-                    .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.black, lineWidth: 1))
-                    .padding(.horizontal)
-                    
-                    ZStack(alignment: .leading) {
-                        if viewModel.password.isEmpty {
-                            Text("Password")
-                                .foregroundColor(.black)
-                                .opacity(0.4)
-                        }
-                        SecureField("Password", text: $viewModel.password)
-                    }
-                    .frame(maxHeight: 40)
-                    .padding(.horizontal)
-                    .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.black, lineWidth: 1))
-                    .padding(.horizontal)
-                    
-                    Button("Save") {
-                        viewModel.login()
-                    }.frame(maxWidth: .infinity, maxHeight: 40)
-                        .background(viewModel.buttonDisabled ? Color.gray : Color.red)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
+                        .frame(maxHeight: 40)
                         .padding(.horizontal)
-                        .disabled(viewModel.buttonDisabled)
-                        .alert(isPresented: $viewModel.showingAlertModal) {
-                            Alert(title: Text("Validation"), message: Text(viewModel.showMessage))
+                        .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.black, lineWidth: 1))
+                        .padding(.horizontal)
+                        
+                        ZStack(alignment: .leading) {
+                            if viewModel.password.isEmpty {
+                                Text("Password")
+                                    .foregroundColor(.black)
+                                    .opacity(0.4)
+                            }
+                            SecureField("Password", text: $viewModel.password)
                         }
-                }
-                
-                
-                Spacer()
-            }.background(
-                Image("wallpaper")
-                    .resizable()
-                    .aspectRatio(contentMode: ContentMode.fill)
-                    .blur(radius: 100)
-                    .ignoresSafeArea()
-            )
-            
+                        .frame(maxHeight: 40)
+                        .padding(.horizontal)
+                        .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.black, lineWidth: 1))
+                        .padding(.horizontal)
+                        
+                        Button("Save") {
+                            viewModel.login()
+                        }.frame(maxWidth: .infinity, maxHeight: 40)
+                            .background(viewModel.buttonDisabled ? Color.gray : Color.red)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                            .padding(.horizontal)
+                            .disabled(viewModel.buttonDisabled)
+                            .alert(isPresented: $viewModel.showingAlertModal) {
+                                Alert(title: Text("Validation"), message: Text(viewModel.showMessage))
+                            }
+                        NavigationLink(destination: HomeView(), isActive: $viewModel.goToHome,label: { EmptyView() })
+                    }
+                    
+                    
+                    Spacer()
+                }.background(
+                    Image("wallpaper")
+                        .resizable()
+                        .aspectRatio(contentMode: ContentMode.fill)
+                        .blur(radius: 100)
+                        .ignoresSafeArea()
+                )
+               
+            } 
         }
         
         

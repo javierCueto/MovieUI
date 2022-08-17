@@ -17,6 +17,7 @@
 		3BA319BE28A4580E009F1C58 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA319BD28A4580E009F1C58 /* Persistence.swift */; };
 		3BA319C128A4580E009F1C58 /* MovieUI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3BA319BF28A4580E009F1C58 /* MovieUI.xcdatamodeld */; };
 		3BA319CB28A4580F009F1C58 /* MovieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA319CA28A4580F009F1C58 /* MovieUITests.swift */; };
+		3BAEEA1A28AD9B2400B18525 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAEEA1928AD9B2400B18525 /* HomeView.swift */; };
 		3BCE62F128A6A11F0062E6F0 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCE62F028A6A11F0062E6F0 /* LoginViewModel.swift */; };
 		3BCE62F428A6A90B0062E6F0 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCE62F328A6A90B0062E6F0 /* LoginUseCase.swift */; };
 		3BCE62F628A6ACD80062E6F0 /* EmailValidationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCE62F528A6ACD80062E6F0 /* EmailValidationUseCase.swift */; };
@@ -45,6 +46,7 @@
 		3BA319C028A4580E009F1C58 /* MovieUI.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MovieUI.xcdatamodel; sourceTree = "<group>"; };
 		3BA319C628A4580F009F1C58 /* MovieUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BA319CA28A4580F009F1C58 /* MovieUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieUITests.swift; sourceTree = "<group>"; };
+		3BAEEA1928AD9B2400B18525 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		3BCE62F028A6A11F0062E6F0 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		3BCE62F328A6A90B0062E6F0 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
 		3BCE62F528A6ACD80062E6F0 /* EmailValidationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidationUseCase.swift; sourceTree = "<group>"; };
@@ -178,10 +180,19 @@
 		3BA319E628A4595F009F1C58 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				3BAEEA1828AD9B1300B18525 /* Home */,
 				3B25BAF528A56DFB005DA52F /* Login */,
 				3B25BAF228A546ED005DA52F /* Test */,
 			);
 			path = Modules;
+			sourceTree = "<group>";
+		};
+		3BAEEA1828AD9B1300B18525 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				3BAEEA1928AD9B2400B18525 /* HomeView.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		3BCE62EF28A6A1090062E6F0 /* ViewModel */ = {
@@ -306,6 +317,7 @@
 				3B25BAF428A56DD2005DA52F /* TestView.swift in Sources */,
 				3BA319B728A45809009F1C58 /* ContentView.swift in Sources */,
 				3BCE62F128A6A11F0062E6F0 /* LoginViewModel.swift in Sources */,
+				3BAEEA1A28AD9B2400B18525 /* HomeView.swift in Sources */,
 				3BCE62F628A6ACD80062E6F0 /* EmailValidationUseCase.swift in Sources */,
 				3BA319C128A4580E009F1C58 /* MovieUI.xcdatamodeld in Sources */,
 				3B25BAF828A56E24005DA52F /* AppFactory.swift in Sources */,
