@@ -8,16 +8,14 @@
 import SwiftUI
 
 struct LoginView: View {
-    @State var email: String = ""
-    @State var password: String = ""
-    @State var showingModal: Bool = false
+    @StateObject var viewModel = LoginViewModel()
     
     var body: some View {
         ZStack {
-            if $showingModal.wrappedValue {
+            if $viewModel.showingModal.wrappedValue {
                 ZStack {
                     Color.black.opacity(0.5)
-   
+                    
                         .ignoresSafeArea()
                     // This VStack is the popup
                     ProgressView("Loading ...")
@@ -25,7 +23,22 @@ struct LoginView: View {
                         .background(Color.white)
                         .cornerRadius(20).shadow(radius: 20)
                 }
-                    .zIndex(2)
+                .zIndex(2)
+                
+            }
+            
+            if $viewModel.showingModal.wrappedValue {
+                ZStack {
+                    Color.black.opacity(0.5)
+                    
+                        .ignoresSafeArea()
+                    // This VStack is the popup
+                    ProgressView("Loading ...")
+                        .frame(width: 200, height: 100)
+                        .background(Color.white)
+                        .cornerRadius(20).shadow(radius: 20)
+                }
+                .zIndex(2)
                 
             }
             
@@ -36,12 +49,14 @@ struct LoginView: View {
                     .font(.title)
                 Group {
                     ZStack(alignment: .leading) {
-                        if email.isEmpty {
+                        if viewModel.email.isEmpty {
                             Text("Email")
                                 .foregroundColor(.black)
                                 .opacity(0.4)
                         }
-                        TextField("", text: $email)
+                        TextField("", text: $viewModel.email)
+                            .keyboardType(.emailAddress)
+                 
                     }
                     .frame(maxHeight: 40)
                     .padding(.horizontal)
@@ -49,12 +64,12 @@ struct LoginView: View {
                     .padding(.horizontal)
                     
                     ZStack(alignment: .leading) {
-                        if password.isEmpty {
+                        if viewModel.password.isEmpty {
                             Text("Password")
                                 .foregroundColor(.black)
                                 .opacity(0.4)
                         }
-                        SecureField("Password", text: $password)
+                        SecureField("Password", text: $viewModel.password)
                     }
                     .frame(maxHeight: 40)
                     .padding(.horizontal)
@@ -62,13 +77,16 @@ struct LoginView: View {
                     .padding(.horizontal)
                     
                     Button("Save") {
-                        print("logged")
-                        showingModal.toggle()
+                        viewModel.login()
                     }.frame(maxWidth: .infinity, maxHeight: 40)
-                        .background(Color.red)
+                        .background(viewModel.buttonDisabled ? Color.gray : Color.red)
                         .foregroundColor(.white)
                         .cornerRadius(10)
                         .padding(.horizontal)
+                        .disabled(viewModel.buttonDisabled)
+                        .alert(isPresented: $viewModel.showingAlertModal) {
+                            Alert(title: Text("Validation"), message: Text(viewModel.showMessage))
+                        }
                 }
                 
                 
@@ -83,7 +101,7 @@ struct LoginView: View {
             
         }
         
-       
+        
     }
 }
 

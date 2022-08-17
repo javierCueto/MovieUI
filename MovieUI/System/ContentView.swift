@@ -40,6 +40,11 @@ struct ContentView: View {
     }
     
     private func fetch() async -> Result<[User], Error>{
+//        guard let url = url else {
+//            return Result.failure(URLError(.badServerResponse))
+//        }
+//        
+        //let (data, response) =  try! await URLSession.shared.data(from: url)
 
         
         await withCheckedContinuation { continuation in
