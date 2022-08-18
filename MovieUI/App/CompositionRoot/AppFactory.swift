@@ -8,21 +8,21 @@
 import SwiftUI
 
 protocol AppFactory {
-    func makeAppRootView(coordinator: AppCoordinatorImpl) -> AnyView
-    func makeLogin(coordinator: AppCoordinatorImpl, isLogged: Binding<Bool>) -> AnyView
+    func makeAppRootView(coordinator: AppCoordinator) -> AnyView
+    func makeLogin(isLogged: Binding<Bool>) -> AnyView
     func makeHome() -> AnyView
     
 }
 
 
 struct AppFactoryImpl: AppFactory {
-    func makeAppRootView(coordinator: AppCoordinatorImpl) -> AnyView {
+    func makeAppRootView(coordinator: AppCoordinator) -> AnyView {
         return AnyView(AppRootView(coordinator: coordinator))
     }
     
-    func makeLogin(coordinator: AppCoordinatorImpl, isLogged: Binding<Bool>) -> AnyView {
+    func makeLogin(isLogged: Binding<Bool>) -> AnyView {
         let viewModel = LoginViewModel(isLogged: isLogged)
-        let view = LoginView(viewModel: viewModel, coordinator: coordinator)
+        let view = LoginView(viewModel: viewModel)
         
         return AnyView(view)
     }

@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct MovieUIApp: App {
     let persistenceController = PersistenceController.shared
-    let appCoordinator = AppCoordinatorImpl(appFactory: AppFactoryImpl())
+    let appCoordinator: Coordinator = AppCoordinatorImpl(appFactory: AppFactoryImpl())
 
     var body: some Scene {
         WindowGroup {

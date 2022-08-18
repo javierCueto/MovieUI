@@ -37,6 +37,7 @@ final class LoginViewModel: ObservableObject{
     private var isLogged: Binding<Bool>
     
     var viewDismissalModePublisher = PassthroughSubject<Bool, Never>()
+    
     init(isLogged: Binding<Bool>) {
         self.isLogged = isLogged
     }

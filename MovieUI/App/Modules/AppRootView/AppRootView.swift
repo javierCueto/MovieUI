@@ -7,26 +7,12 @@
 
 import SwiftUI
 struct AppRootView: View {
-    @State var toHome: Bool = false
-    @State var isLogged: Bool = true
-    let coordinator: AppCoordinatorImpl
+    @State private var toHome: Bool = false
+    @State private var isLogged: Bool = true
+    let coordinator: AppCoordinator
     var body: some View {
         NavigationView{
-            ZStack {
-                Color.red
-                    .ignoresSafeArea()
-                
-                VStack {
-                    Text("Movie UI")
-                        .font(.largeTitle)
-                        .bold()
-                        .foregroundColor(.white)
-                    ProgressView()
-                    NavigationLink(destination: coordinator.goHome(),isActive: $toHome, label: {EmptyView() })
-                }
-                
-                
-            }.hiddenNavigationBarStyle()
+            AppRootBodyView(toHome: $toHome, coordinator: coordinator)
         }.fullScreenCover(isPresented: $isLogged) {
             coordinator.goLogin(isLogged: $toHome)
         }
@@ -34,4 +20,23 @@ struct AppRootView: View {
     }
 }
 
+
+struct AppRootBodyView: View {
+    @Binding var toHome: Bool
+    let coordinator: AppCoordinator
+    var body: some View {
+        ZStack {
+            Color.red
+                .ignoresSafeArea()
+            VStack {
+                Text("Movie UI")
+                    .font(.largeTitle)
+                    .bold()
+                    .foregroundColor(.white)
+                ProgressView()
+                NavigationLink(destination: coordinator.goHome(),isActive: $toHome, label: {EmptyView() })
+            }
+        }.hiddenNavigationBarStyle()
+    }
+}
 

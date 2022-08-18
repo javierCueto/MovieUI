@@ -11,7 +11,6 @@ import SwiftUI
 
 struct LoginView: View {
     @StateObject var viewModel: LoginViewModel
-    let coordinator: AppCoordinatorImpl
     
     @Environment(\.presentationMode) var dismiss
     var body: some View {
@@ -117,22 +116,4 @@ struct LoginView: View {
     }
 }
 
-struct HiddenNavigationBar: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-        .navigationBarTitle("", displayMode: .inline)
-        .navigationBarHidden(true)
-    }
-}
 
-extension View {
-    func hiddenNavigationBarStyle() -> some View {
-        modifier( HiddenNavigationBar() )
-    }
-}
-
-//struct LoginView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        LoginView()
-//    }
-//}

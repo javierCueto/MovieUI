@@ -7,8 +7,16 @@
 
 
 import SwiftUI
+protocol Coordinator {
+    func start() -> AnyView
+}
 
-class AppCoordinatorImpl {
+protocol AppCoordinator {
+    func goHome() -> AnyView
+    func goLogin(isLogged: Binding<Bool>) -> AnyView
+}
+
+final class AppCoordinatorImpl: Coordinator  {
     private let appFactory: AppFactory
     
     init(appFactory: AppFactory){
@@ -19,13 +27,15 @@ class AppCoordinatorImpl {
         appFactory.makeAppRootView(coordinator: self)
     }
     
+}
+
+extension AppCoordinatorImpl: AppCoordinator {
     func goHome() -> AnyView {
-        appFactory.makeHome()
+        let coordinator = HomeCoordinator(appFactory: appFactory)
+        return coordinator.start()
     }
     
     func goLogin(isLogged: Binding<Bool>) -> AnyView {
-        appFactory.makeLogin(coordinator: self, isLogged: isLogged)
+        appFactory.makeLogin(isLogged: isLogged)
     }
-    
-    
 }

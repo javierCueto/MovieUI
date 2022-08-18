@@ -11,6 +11,8 @@
 		3B25BAF428A56DD2005DA52F /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B25BAF328A56DD2005DA52F /* TestView.swift */; };
 		3B25BAF828A56E24005DA52F /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B25BAF728A56E24005DA52F /* AppFactory.swift */; };
 		3B25BAFB28A5700C005DA52F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B25BAFA28A5700C005DA52F /* LoginView.swift */; };
+		3B50D69828AEC4A0004A9EA6 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50D69728AEC4A0004A9EA6 /* HomeCoordinator.swift */; };
+		3B50D69C28AEC873004A9EA6 /* HiddenNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50D69B28AEC873004A9EA6 /* HiddenNavigationBar.swift */; };
 		3BA319B528A45809009F1C58 /* MovieUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA319B428A45809009F1C58 /* MovieUIApp.swift */; };
 		3BA319B728A45809009F1C58 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA319B628A45809009F1C58 /* ContentView.swift */; };
 		3BA319B928A4580E009F1C58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BA319B828A4580E009F1C58 /* Assets.xcassets */; };
@@ -41,6 +43,8 @@
 		3B25BAF328A56DD2005DA52F /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		3B25BAF728A56E24005DA52F /* AppFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
 		3B25BAFA28A5700C005DA52F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		3B50D69728AEC4A0004A9EA6 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		3B50D69B28AEC873004A9EA6 /* HiddenNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenNavigationBar.swift; sourceTree = "<group>"; };
 		3BA319B128A45809009F1C58 /* MovieUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BA319B428A45809009F1C58 /* MovieUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieUIApp.swift; sourceTree = "<group>"; };
 		3BA319B628A45809009F1C58 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -106,6 +110,7 @@
 		3B25BAF628A56E0B005DA52F /* CompositionRoot */ = {
 			isa = PBXGroup;
 			children = (
+				3B50D69628AEC490004A9EA6 /* Home */,
 				3B25BAF728A56E24005DA52F /* AppFactory.swift */,
 				3BAEEA1B28AD9C6400B18525 /* AppCoordinator.swift */,
 			);
@@ -118,6 +123,30 @@
 				3B25BAFA28A5700C005DA52F /* LoginView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		3B50D69628AEC490004A9EA6 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				3B50D69728AEC4A0004A9EA6 /* HomeCoordinator.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		3B50D69928AEC855004A9EA6 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				3B50D69A28AEC85F004A9EA6 /* Modifiers */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		3B50D69A28AEC85F004A9EA6 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				3B50D69B28AEC873004A9EA6 /* HiddenNavigationBar.swift */,
+			);
+			path = Modifiers;
 			sourceTree = "<group>";
 		};
 		3BA319A828A45808009F1C58 = {
@@ -168,6 +197,7 @@
 		3BA319E328A45901009F1C58 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				3B50D69928AEC855004A9EA6 /* Common */,
 				3B25BAF628A56E0B005DA52F /* CompositionRoot */,
 				3BA319E628A4595F009F1C58 /* Modules */,
 				3BA319E528A45953009F1C58 /* Resources */,
@@ -345,8 +375,10 @@
 				3B25BAFB28A5700C005DA52F /* LoginView.swift in Sources */,
 				3B25BAF428A56DD2005DA52F /* TestView.swift in Sources */,
 				3BA319B728A45809009F1C58 /* ContentView.swift in Sources */,
+				3B50D69828AEC4A0004A9EA6 /* HomeCoordinator.swift in Sources */,
 				3BCE62F128A6A11F0062E6F0 /* LoginViewModel.swift in Sources */,
 				3BAEEA1A28AD9B2400B18525 /* HomeView.swift in Sources */,
+				3B50D69C28AEC873004A9EA6 /* HiddenNavigationBar.swift in Sources */,
 				3BCE62F628A6ACD80062E6F0 /* EmailValidationUseCase.swift in Sources */,
 				3BA319C128A4580E009F1C58 /* MovieUI.xcdatamodeld in Sources */,
 				3B25BAF828A56E24005DA52F /* AppFactory.swift in Sources */,
