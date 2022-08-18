@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B25965C28AE93D300E8CFE5 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B25965B28AE93D300E8CFE5 /* Launch Screen.storyboard */; };
 		3B25BAF428A56DD2005DA52F /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B25BAF328A56DD2005DA52F /* TestView.swift */; };
 		3B25BAF828A56E24005DA52F /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B25BAF728A56E24005DA52F /* AppFactory.swift */; };
 		3B25BAFB28A5700C005DA52F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B25BAFA28A5700C005DA52F /* LoginView.swift */; };
@@ -18,6 +19,8 @@
 		3BA319C128A4580E009F1C58 /* MovieUI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3BA319BF28A4580E009F1C58 /* MovieUI.xcdatamodeld */; };
 		3BA319CB28A4580F009F1C58 /* MovieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA319CA28A4580F009F1C58 /* MovieUITests.swift */; };
 		3BAEEA1A28AD9B2400B18525 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAEEA1928AD9B2400B18525 /* HomeView.swift */; };
+		3BAEEA1C28AD9C6400B18525 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAEEA1B28AD9C6400B18525 /* AppCoordinator.swift */; };
+		3BAEEA1F28AE8D7700B18525 /* AppRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAEEA1E28AE8D7700B18525 /* AppRootView.swift */; };
 		3BCE62F128A6A11F0062E6F0 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCE62F028A6A11F0062E6F0 /* LoginViewModel.swift */; };
 		3BCE62F428A6A90B0062E6F0 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCE62F328A6A90B0062E6F0 /* LoginUseCase.swift */; };
 		3BCE62F628A6ACD80062E6F0 /* EmailValidationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCE62F528A6ACD80062E6F0 /* EmailValidationUseCase.swift */; };
@@ -34,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B25965B28AE93D300E8CFE5 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		3B25BAF328A56DD2005DA52F /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		3B25BAF728A56E24005DA52F /* AppFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
 		3B25BAFA28A5700C005DA52F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -47,6 +51,9 @@
 		3BA319C628A4580F009F1C58 /* MovieUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BA319CA28A4580F009F1C58 /* MovieUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieUITests.swift; sourceTree = "<group>"; };
 		3BAEEA1928AD9B2400B18525 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		3BAEEA1B28AD9C6400B18525 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		3BAEEA1E28AE8D7700B18525 /* AppRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootView.swift; sourceTree = "<group>"; };
+		3BAEEA2028AE8F3700B18525 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		3BCE62F028A6A11F0062E6F0 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		3BCE62F328A6A90B0062E6F0 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
 		3BCE62F528A6ACD80062E6F0 /* EmailValidationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidationUseCase.swift; sourceTree = "<group>"; };
@@ -70,6 +77,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B25965E28AEB3E100E8CFE5 /* AppRootView */ = {
+			isa = PBXGroup;
+			children = (
+				3BAEEA1E28AE8D7700B18525 /* AppRootView.swift */,
+			);
+			path = AppRootView;
+			sourceTree = "<group>";
+		};
 		3B25BAF228A546ED005DA52F /* Test */ = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				3B25BAF728A56E24005DA52F /* AppFactory.swift */,
+				3BAEEA1B28AD9C6400B18525 /* AppCoordinator.swift */,
 			);
 			path = CompositionRoot;
 			sourceTree = "<group>";
@@ -125,6 +141,7 @@
 		3BA319B328A45809009F1C58 /* MovieUI */ = {
 			isa = PBXGroup;
 			children = (
+				3BAEEA2028AE8F3700B18525 /* Info.plist */,
 				3BA319BA28A4580E009F1C58 /* Preview Content */,
 				3BA319E428A45909009F1C58 /* System */,
 				3BA319E328A45901009F1C58 /* App */,
@@ -180,6 +197,8 @@
 		3BA319E628A4595F009F1C58 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				3B25965E28AEB3E100E8CFE5 /* AppRootView */,
+				3BAEEA1D28AE8D6100B18525 /* LauchScreen */,
 				3BAEEA1828AD9B1300B18525 /* Home */,
 				3B25BAF528A56DFB005DA52F /* Login */,
 				3B25BAF228A546ED005DA52F /* Test */,
@@ -193,6 +212,14 @@
 				3BAEEA1928AD9B2400B18525 /* HomeView.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		3BAEEA1D28AE8D6100B18525 /* LauchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				3B25965B28AE93D300E8CFE5 /* Launch Screen.storyboard */,
+			);
+			path = LauchScreen;
 			sourceTree = "<group>";
 		};
 		3BCE62EF28A6A1090062E6F0 /* ViewModel */ = {
@@ -293,6 +320,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B25965C28AE93D300E8CFE5 /* Launch Screen.storyboard in Resources */,
 				3BA319BC28A4580E009F1C58 /* Preview Assets.xcassets in Resources */,
 				3BA319B928A4580E009F1C58 /* Assets.xcassets in Resources */,
 			);
@@ -312,6 +340,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BAEEA1C28AD9C6400B18525 /* AppCoordinator.swift in Sources */,
 				3BA319BE28A4580E009F1C58 /* Persistence.swift in Sources */,
 				3B25BAFB28A5700C005DA52F /* LoginView.swift in Sources */,
 				3B25BAF428A56DD2005DA52F /* TestView.swift in Sources */,
@@ -323,6 +352,7 @@
 				3B25BAF828A56E24005DA52F /* AppFactory.swift in Sources */,
 				3BA319B528A45809009F1C58 /* MovieUIApp.swift in Sources */,
 				3BCE62F428A6A90B0062E6F0 /* LoginUseCase.swift in Sources */,
+				3BAEEA1F28AE8D7700B18525 /* AppRootView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,15 +494,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MovieUI/Preview Content\"";
 				DEVELOPMENT_TEAM = TNSM43P2F3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MovieUI/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -482,9 +514,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.javiercueto.MovieUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -493,15 +528,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MovieUI/Preview Content\"";
 				DEVELOPMENT_TEAM = TNSM43P2F3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MovieUI/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -511,9 +548,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.javiercueto.MovieUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

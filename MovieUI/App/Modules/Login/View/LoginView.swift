@@ -10,8 +10,10 @@ import SwiftUI
 //TODO: remove magic numbers and reuse views
 
 struct LoginView: View {
-    @StateObject var viewModel = LoginViewModel()
+    @StateObject var viewModel: LoginViewModel
+    let coordinator: AppCoordinatorImpl
     
+    @Environment(\.presentationMode) var dismiss
     var body: some View {
         ZStack {
             if $viewModel.showingModal.wrappedValue {
@@ -44,7 +46,6 @@ struct LoginView: View {
                 
             }
             
-            NavigationView {
                 
                 VStack {
                     Spacer()
@@ -81,7 +82,7 @@ struct LoginView: View {
                         .padding(.horizontal)
                         
                         Button("Save") {
-                            viewModel.login()
+                           viewModel.login()
                         }.frame(maxWidth: .infinity, maxHeight: 40)
                             .background(viewModel.buttonDisabled ? Color.gray : Color.red)
                             .foregroundColor(.white)
@@ -90,8 +91,12 @@ struct LoginView: View {
                             .disabled(viewModel.buttonDisabled)
                             .alert(isPresented: $viewModel.showingAlertModal) {
                                 Alert(title: Text("Validation"), message: Text(viewModel.showMessage))
+                            }.onReceive(viewModel.viewDismissalModePublisher) { shouldDismiss in
+                                if shouldDismiss {
+                                    self.dismiss.wrappedValue.dismiss()
+                                }
+                                
                             }
-                        NavigationLink(destination: HomeView(), isActive: $viewModel.goToHome,label: { EmptyView() })
                     }
                     
                     
@@ -104,10 +109,25 @@ struct LoginView: View {
                         .ignoresSafeArea()
                 )
                
-            } 
-        }
+            
+        }.navigationBarBackButtonHidden(true)
+            .hiddenNavigationBarStyle()
         
         
+    }
+}
+
+struct HiddenNavigationBar: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+        .navigationBarTitle("", displayMode: .inline)
+        .navigationBarHidden(true)
+    }
+}
+
+extension View {
+    func hiddenNavigationBarStyle() -> some View {
+        modifier( HiddenNavigationBar() )
     }
 }
 

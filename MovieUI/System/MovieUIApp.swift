@@ -10,11 +10,11 @@ import SwiftUI
 @main
 struct MovieUIApp: App {
     let persistenceController = PersistenceController.shared
-    let appFactory = AppFactoryImpl()
+    let appCoordinator = AppCoordinatorImpl(appFactory: AppFactoryImpl())
 
     var body: some Scene {
         WindowGroup {
-            appFactory.makeLogin()
+            appCoordinator.start()
         }
     }
 }

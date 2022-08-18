@@ -7,8 +7,9 @@
 
 import Combine
 import UIKit
+import SwiftUI
 
-@MainActor final class LoginViewModel: ObservableObject{
+final class LoginViewModel: ObservableObject{
     //TODO: move validations to another use case
     @Published var email: String = "" {
         didSet {
@@ -27,25 +28,34 @@ import UIKit
     @Published var showMessage: String = ""
     @Published var showingAlertModal: Bool = false
     @Published var buttonDisabled: Bool = true
-    @Published var goToHome: Bool = false
     
     private var validEmail = false
     
     private var loginUseCase = LoginUseCaseImpl()
     private var emailValidationUseCase = EmailValidationUseCaseImpl()
     
+    private var isLogged: Binding<Bool>
+    
+    var viewDismissalModePublisher = PassthroughSubject<Bool, Never>()
+    init(isLogged: Binding<Bool>) {
+        self.isLogged = isLogged
+    }
     
     func login(){
+        isLogged.wrappedValue = true
        
         showingModal = true
         
         Task {
             let response = await loginUseCase.execute(password: password, email: email)
     
-            goToHome = true
-            showingModal = false
-            showingAlertModal = !response.valid
-            showMessage = response.message
+            await MainActor.run {
+                viewDismissalModePublisher.send(true)
+                showingModal = false
+                showingAlertModal = !response.valid
+                showMessage = response.message
+            }
+
         }
 
         
