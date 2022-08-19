@@ -10,24 +10,15 @@ import Combine
 final class AppRootViewModel: ObservableObject{
     
     @Published var toHome: Bool = false
-    @Published var modalLogin: Bool = false {
+    @Published var modalLogin: Bool = false
+    {
         didSet {
-   
-            if modalLogin {
-                print("modal login was updated")
-            }else {
-                toHome = sessionManager.isLogged.wrappedValue
-            }
+  
+            toHome = sessionManager.isLogged.wrappedValue
+           // print("updating value home", toHome)
         }
     }
-    
-    var backRootView: PassthroughSubject<Bool, Never> {
-        didSet {
-            print("wasUpdate")
-        }
-    }
-    
-    
+    var backRootView: PassthroughSubject<Bool, Never>
     let sessionManager: SessionManager
     
     init(sessionManager: SessionManager, backRootView: PassthroughSubject<Bool, Never> ) {

@@ -90,11 +90,6 @@ struct LoginView: View {
                             .disabled(viewModel.buttonDisabled)
                             .alert(isPresented: $viewModel.showingAlertModal) {
                                 Alert(title: Text("Validation"), message: Text(viewModel.showMessage))
-                            }.onReceive(viewModel.viewDismissalModePublisher) { shouldDismiss in
-                                if shouldDismiss {
-                                    self.dismiss.wrappedValue.dismiss()
-                                }
-                                
                             }
                     }
                     

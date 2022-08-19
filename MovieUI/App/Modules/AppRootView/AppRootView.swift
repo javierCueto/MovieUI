@@ -14,7 +14,7 @@ struct AppRootView: View {
         NavigationView{
             AppRootBodyView(viewModel: viewModel, coordinator: coordinator)
         }.fullScreenCover(isPresented: $viewModel.modalLogin) {
-            coordinator.goLogin(modalLogin: $viewModel.modalLogin)
+            DeferView {coordinator.goLogin(modalLogin: $viewModel.modalLogin)}
         }
         .onReceive(viewModel.backRootView) { value in
             viewModel.onAppear()
@@ -37,10 +37,22 @@ struct AppRootBodyView: View {
                     .bold()
                     .foregroundColor(.white)
                 ProgressView()
-                NavigationLink(destination: coordinator.goHome(),isActive: $viewModel.toHome, label: {EmptyView() })
+                NavigationLink(destination: DeferView {coordinator.goHome()},isActive: $viewModel.toHome, label: {EmptyView() })
             }
         }
         .hiddenNavigationBarStyle()
     }
 }
 
+
+
+struct DeferView<Content: View>: View {
+    let content: () -> Content
+
+    init(@ViewBuilder _ content: @escaping () -> Content) {
+        self.content = content
+    }
+    var body: some View {
+        content()          // << everything is created here
+    }
+}

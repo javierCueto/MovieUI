@@ -36,7 +36,8 @@ struct AppFactoryImpl: AppFactory {
     
     
     func makeHome() -> AnyView {
-        let viewModel = HomeViewModel(sessionManager: sessionManager, backRootView: backRootView)
+        print("home was created on factory_________")
+        let viewModel = HomeViewModelImpl(sessionManager: sessionManager, backRootView: backRootView)
         let view = HomeView(viewModel: viewModel)
         
         return AnyView(view)

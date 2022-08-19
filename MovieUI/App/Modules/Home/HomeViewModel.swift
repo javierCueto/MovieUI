@@ -7,7 +7,11 @@
 
 import Combine
 
-final class HomeViewModel {
+protocol HomeViewModel {
+    func logOut()
+}
+
+final class HomeViewModelImpl: HomeViewModel {
     
     let sessionManager: SessionManager
     let backRootView: PassthroughSubject<Bool, Never>

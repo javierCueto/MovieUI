@@ -36,11 +36,11 @@ final class LoginViewModel: ObservableObject{
     
     private var modalLogin: Binding<Bool>
     
-    var viewDismissalModePublisher = PassthroughSubject<Bool, Never>()
     
     init(modalLogin: Binding<Bool>, loginUseCase: LoginUseCaseImpl) {
         self.modalLogin = modalLogin
         self.loginUseCase = loginUseCase
+        print("loging was instance too")
     }
     
     func login(){
@@ -53,7 +53,6 @@ final class LoginViewModel: ObservableObject{
             await MainActor.run {
                 if(response.valid){
                     modalLogin.wrappedValue = false
-                    //viewDismissalModePublisher.send(true)
                 }
 
                 showingModal = false
