@@ -13,6 +13,9 @@
 		3B25BAFB28A5700C005DA52F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B25BAFA28A5700C005DA52F /* LoginView.swift */; };
 		3B50D69828AEC4A0004A9EA6 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50D69728AEC4A0004A9EA6 /* HomeCoordinator.swift */; };
 		3B50D69C28AEC873004A9EA6 /* HiddenNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50D69B28AEC873004A9EA6 /* HiddenNavigationBar.swift */; };
+		3B50D69E28AECBBB004A9EA6 /* AppRootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50D69D28AECBBB004A9EA6 /* AppRootViewModel.swift */; };
+		3B50D6A128AFF5F8004A9EA6 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50D6A028AFF5F8004A9EA6 /* SessionManager.swift */; };
+		3B50D6A328B00C07004A9EA6 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50D6A228B00C07004A9EA6 /* HomeViewModel.swift */; };
 		3BA319B528A45809009F1C58 /* MovieUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA319B428A45809009F1C58 /* MovieUIApp.swift */; };
 		3BA319B728A45809009F1C58 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA319B628A45809009F1C58 /* ContentView.swift */; };
 		3BA319B928A4580E009F1C58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BA319B828A4580E009F1C58 /* Assets.xcassets */; };
@@ -45,6 +48,9 @@
 		3B25BAFA28A5700C005DA52F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		3B50D69728AEC4A0004A9EA6 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		3B50D69B28AEC873004A9EA6 /* HiddenNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenNavigationBar.swift; sourceTree = "<group>"; };
+		3B50D69D28AECBBB004A9EA6 /* AppRootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootViewModel.swift; sourceTree = "<group>"; };
+		3B50D6A028AFF5F8004A9EA6 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		3B50D6A228B00C07004A9EA6 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		3BA319B128A45809009F1C58 /* MovieUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BA319B428A45809009F1C58 /* MovieUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieUIApp.swift; sourceTree = "<group>"; };
 		3BA319B628A45809009F1C58 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -85,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				3BAEEA1E28AE8D7700B18525 /* AppRootView.swift */,
+				3B50D69D28AECBBB004A9EA6 /* AppRootViewModel.swift */,
 			);
 			path = AppRootView;
 			sourceTree = "<group>";
@@ -149,6 +156,14 @@
 			path = Modifiers;
 			sourceTree = "<group>";
 		};
+		3B50D69F28AFF5D7004A9EA6 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				3B50D6A028AFF5F8004A9EA6 /* SessionManager.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
 		3BA319A828A45808009F1C58 = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +212,7 @@
 		3BA319E328A45901009F1C58 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				3B50D69F28AFF5D7004A9EA6 /* Auth */,
 				3B50D69928AEC855004A9EA6 /* Common */,
 				3B25BAF628A56E0B005DA52F /* CompositionRoot */,
 				3BA319E628A4595F009F1C58 /* Modules */,
@@ -240,6 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				3BAEEA1928AD9B2400B18525 /* HomeView.swift */,
+				3B50D6A228B00C07004A9EA6 /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -371,7 +388,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BAEEA1C28AD9C6400B18525 /* AppCoordinator.swift in Sources */,
+				3B50D6A328B00C07004A9EA6 /* HomeViewModel.swift in Sources */,
 				3BA319BE28A4580E009F1C58 /* Persistence.swift in Sources */,
+				3B50D69E28AECBBB004A9EA6 /* AppRootViewModel.swift in Sources */,
 				3B25BAFB28A5700C005DA52F /* LoginView.swift in Sources */,
 				3B25BAF428A56DD2005DA52F /* TestView.swift in Sources */,
 				3BA319B728A45809009F1C58 /* ContentView.swift in Sources */,
@@ -385,6 +404,7 @@
 				3BA319B528A45809009F1C58 /* MovieUIApp.swift in Sources */,
 				3BCE62F428A6A90B0062E6F0 /* LoginUseCase.swift in Sources */,
 				3BAEEA1F28AE8D7700B18525 /* AppRootView.swift in Sources */,
+				3B50D6A128AFF5F8004A9EA6 /* SessionManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -31,19 +31,19 @@ final class LoginViewModel: ObservableObject{
     
     private var validEmail = false
     
-    private var loginUseCase = LoginUseCaseImpl()
+    private var loginUseCase: LoginUseCaseImpl
     private var emailValidationUseCase = EmailValidationUseCaseImpl()
     
-    private var isLogged: Binding<Bool>
+    private var modalLogin: Binding<Bool>
     
     var viewDismissalModePublisher = PassthroughSubject<Bool, Never>()
     
-    init(isLogged: Binding<Bool>) {
-        self.isLogged = isLogged
+    init(modalLogin: Binding<Bool>, loginUseCase: LoginUseCaseImpl) {
+        self.modalLogin = modalLogin
+        self.loginUseCase = loginUseCase
     }
     
     func login(){
-        isLogged.wrappedValue = true
        
         showingModal = true
         
@@ -51,7 +51,11 @@ final class LoginViewModel: ObservableObject{
             let response = await loginUseCase.execute(password: password, email: email)
     
             await MainActor.run {
-                viewDismissalModePublisher.send(true)
+                if(response.valid){
+                    modalLogin.wrappedValue = false
+                    //viewDismissalModePublisher.send(true)
+                }
+
                 showingModal = false
                 showingAlertModal = !response.valid
                 showMessage = response.message

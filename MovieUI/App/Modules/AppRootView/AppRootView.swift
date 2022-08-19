@@ -7,14 +7,17 @@
 
 import SwiftUI
 struct AppRootView: View {
-    @State private var toHome: Bool = false
-    @State private var isLogged: Bool = true
+    @StateObject var viewModel: AppRootViewModel
     let coordinator: AppCoordinator
+    
     var body: some View {
         NavigationView{
-            AppRootBodyView(toHome: $toHome, coordinator: coordinator)
-        }.fullScreenCover(isPresented: $isLogged) {
-            coordinator.goLogin(isLogged: $toHome)
+            AppRootBodyView(viewModel: viewModel, coordinator: coordinator)
+        }.fullScreenCover(isPresented: $viewModel.modalLogin) {
+            coordinator.goLogin(modalLogin: $viewModel.modalLogin)
+        }
+        .onReceive(viewModel.backRootView) { value in
+            viewModel.onAppear()
         }
         
     }
@@ -22,7 +25,7 @@ struct AppRootView: View {
 
 
 struct AppRootBodyView: View {
-    @Binding var toHome: Bool
+    @ObservedObject var viewModel: AppRootViewModel
     let coordinator: AppCoordinator
     var body: some View {
         ZStack {
@@ -34,9 +37,10 @@ struct AppRootBodyView: View {
                     .bold()
                     .foregroundColor(.white)
                 ProgressView()
-                NavigationLink(destination: coordinator.goHome(),isActive: $toHome, label: {EmptyView() })
+                NavigationLink(destination: coordinator.goHome(),isActive: $viewModel.toHome, label: {EmptyView() })
             }
-        }.hiddenNavigationBarStyle()
+        }
+        .hiddenNavigationBarStyle()
     }
 }
 

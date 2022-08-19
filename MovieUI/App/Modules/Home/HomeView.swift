@@ -8,17 +8,24 @@
 import SwiftUI
 
 struct HomeView: View {
+    let viewModel: HomeViewModel
+    @Environment(\.presentationMode) var dismiss
     var body: some View {
         NavigationView {
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            VStack{
+                Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+                
+                Button {
+                    viewModel.logOut()
+                    dismiss.wrappedValue.dismiss()
+                } label: {
+                    Text("logout")
+                }
+            }
+     
+
         }.navigationBarTitleDisplayMode(.inline)
         .navigationTitle("Movies UI")
         .navigationBarBackButtonHidden(true)
-    }
-}
-
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
     }
 }

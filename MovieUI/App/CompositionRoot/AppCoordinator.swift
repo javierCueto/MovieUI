@@ -13,7 +13,7 @@ protocol Coordinator {
 
 protocol AppCoordinator {
     func goHome() -> AnyView
-    func goLogin(isLogged: Binding<Bool>) -> AnyView
+    func goLogin(modalLogin: Binding<Bool>) -> AnyView
 }
 
 final class AppCoordinatorImpl: Coordinator  {
@@ -35,7 +35,7 @@ extension AppCoordinatorImpl: AppCoordinator {
         return coordinator.start()
     }
     
-    func goLogin(isLogged: Binding<Bool>) -> AnyView {
-        appFactory.makeLogin(isLogged: isLogged)
+    func goLogin(modalLogin: Binding<Bool>) -> AnyView {
+        appFactory.makeLogin(modalLogin: modalLogin)
     }
 }
