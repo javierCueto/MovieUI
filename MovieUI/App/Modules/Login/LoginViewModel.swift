@@ -6,35 +6,34 @@
 //
 
 import Combine
-import UIKit
 import SwiftUI
 
 final class LoginViewModel: ObservableObject{
-    //TODO: move validations to another use case
+    
+    // MARK: - Public properties
     @Published var email: String = "" {
         didSet {
-            validEmail = emailValidationUseCase.textFieldValidatorEmail(email)
-            buttonDisabled = !(validEmail && !password.isEmpty)
+            buttonDisabled = enableButtonLoginUseCase.execute(email: email, password: password)
         }
     }
     
     @Published var password: String = "" {
         didSet {
-            validEmail = emailValidationUseCase.textFieldValidatorEmail(email)
-            buttonDisabled = !(validEmail && !password.isEmpty)
+            buttonDisabled = enableButtonLoginUseCase.execute(email: email, password: password)
         }
     }
+    
     @Published var showingModal: Bool = false
     @Published var showMessage: String = ""
     @Published var showingAlertModal: Bool = false
     @Published var buttonDisabled: Bool = true
     
-    private var validEmail = false
-    
+    // MARK: - private properties
     private var loginUseCase: LoginUseCaseImpl
-    private var emailValidationUseCase = EmailValidationUseCaseImpl()
     
     private var modalLogin: Binding<Bool>
+    
+    private var enableButtonLoginUseCase: EnableButtonLoginUseCase = EnableButtonLoginUseCaseImpl()
     
     
     init(modalLogin: Binding<Bool>, loginUseCase: LoginUseCaseImpl) {
