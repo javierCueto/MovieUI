@@ -5,15 +5,19 @@
 //  Created by Javier Cueto on 12/08/22.
 //
 
-final class LoginUseCaseImpl{
+protocol LoginUseCase {
+    func execute(password: String, email: String) async -> (valid: Bool,message: String)
+}
+
+final class LoginUseCaseImpl: LoginUseCase{
     
-    var sessionManager: SessionManager
+    private var sessionManager: SessionManager
     
     init(sessionManager: SessionManager) {
         self.sessionManager = sessionManager
     }
     
-    func execute(password: String, email: String) async -> (valid: Bool,message: String){
+    func execute(password: String, email: String) async -> (valid: Bool,message: String) {
         do {
             try await Task.sleep(nanoseconds: 1_000_000_000)
             if password=="123" && email.lowercased()=="pedro@picapiedra.com"{

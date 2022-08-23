@@ -29,38 +29,40 @@ final class LoginViewModel: ObservableObject{
     @Published var buttonDisabled: Bool = true
     
     // MARK: - private properties
-    private var loginUseCase: LoginUseCaseImpl
-    
+    private var loginUseCase: LoginUseCase
     private var modalLogin: Binding<Bool>
+    private var enableButtonLoginUseCase: EnableButtonLoginUseCase
     
-    private var enableButtonLoginUseCase: EnableButtonLoginUseCase = EnableButtonLoginUseCaseImpl()
-    
-    
-    init(modalLogin: Binding<Bool>, loginUseCase: LoginUseCaseImpl) {
+    init(
+        modalLogin: Binding<Bool>,
+        loginUseCase: LoginUseCase,
+        enableButtonLoginUseCase: EnableButtonLoginUseCase
+    ) {
         self.modalLogin = modalLogin
         self.loginUseCase = loginUseCase
+        self.enableButtonLoginUseCase = enableButtonLoginUseCase
         print("loging was instance too")
     }
     
     func login(){
-       
+        
         showingModal = true
         
         Task {
             let response = await loginUseCase.execute(password: password, email: email)
-    
+            
             await MainActor.run {
                 if(response.valid){
                     modalLogin.wrappedValue = false
                 }
-
+                
                 showingModal = false
                 showingAlertModal = !response.valid
                 showMessage = response.message
             }
-
+            
         }
-
+        
         
     }
 }
