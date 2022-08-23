@@ -15,61 +15,13 @@ struct LoginView: View {
             if $viewModel.showingModal.wrappedValue {
                 LoadingModalView()
             }
-            
             VStack {
                 Spacer()
-                Text("Movie UI")
-                    .foregroundColor(.red)
-                    .font(.title)
-                Group {
-                    ZStack(alignment: .leading) {
-                        if viewModel.email.isEmpty {
-                            Text("Email")
-                                .foregroundColor(.black)
-                                .opacity(0.4)
-                        }
-                        TextField("", text: $viewModel.email)
-                            .keyboardType(.emailAddress)
-                        
-                    }
-                    .frame(maxHeight: 40)
-                    .padding(.horizontal)
-                    .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.black, lineWidth: 1))
-                    .padding(.horizontal)
-                    
-                    ZStack(alignment: .leading) {
-                        if viewModel.password.isEmpty {
-                            Text("Password")
-                                .foregroundColor(.black)
-                                .opacity(0.4)
-                        }
-                        SecureField("Password", text: $viewModel.password)
-                    }
-                    .frame(maxHeight: 40)
-                    .padding(.horizontal)
-                    .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.black, lineWidth: 1))
-                    .padding(.horizontal)
-                    
-                    Button("Save") {
-                        viewModel.login()
-                    }.frame(maxWidth: .infinity, maxHeight: 40)
-                        .background(viewModel.buttonDisabled ? Color.gray : Color.red)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
-                        .padding(.horizontal)
-                        .disabled(viewModel.buttonDisabled)
-                        .alert(isPresented: $viewModel.showingAlertModal) {
-                            Alert(title: Text("Validation"), message: Text(viewModel.showMessage))
-                        }
-                }
-                
-                
+                FormLoadingView(viewModel: viewModel)
                 Spacer()
             }.background(
                 WallpaperLoginView()
             )
-            
-            
         }.navigationBarBackButtonHidden(true)
             .hiddenNavigationBarStyle()
         

@@ -22,6 +22,7 @@
 		3B50D74828B548A4004A9EA6 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50D74728B548A4004A9EA6 /* String+Localized.swift */; };
 		3B50D74A28B55016004A9EA6 /* WallpaperLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50D74928B55016004A9EA6 /* WallpaperLoginView.swift */; };
 		3B50D74D28B55064004A9EA6 /* CImageIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50D74C28B55064004A9EA6 /* CImageIcon.swift */; };
+		3B50D74F28B55340004A9EA6 /* FormLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50D74E28B55340004A9EA6 /* FormLoadingView.swift */; };
 		3BA319B528A45809009F1C58 /* MovieUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA319B428A45809009F1C58 /* MovieUIApp.swift */; };
 		3BA319B728A45809009F1C58 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA319B628A45809009F1C58 /* ContentView.swift */; };
 		3BA319B928A4580E009F1C58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BA319B828A4580E009F1C58 /* Assets.xcassets */; };
@@ -63,6 +64,7 @@
 		3B50D74728B548A4004A9EA6 /* String+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
 		3B50D74928B55016004A9EA6 /* WallpaperLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperLoginView.swift; sourceTree = "<group>"; };
 		3B50D74C28B55064004A9EA6 /* CImageIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CImageIcon.swift; sourceTree = "<group>"; };
+		3B50D74E28B55340004A9EA6 /* FormLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormLoadingView.swift; sourceTree = "<group>"; };
 		3BA319B128A45809009F1C58 /* MovieUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BA319B428A45809009F1C58 /* MovieUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieUIApp.swift; sourceTree = "<group>"; };
 		3BA319B628A45809009F1C58 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				3B25BAFA28A5700C005DA52F /* LoginView.swift */,
 				3B50D74128B54625004A9EA6 /* LoadingModalView.swift */,
 				3B50D74928B55016004A9EA6 /* WallpaperLoginView.swift */,
+				3B50D74E28B55340004A9EA6 /* FormLoadingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 				3B50D69C28AEC873004A9EA6 /* HiddenNavigationBar.swift in Sources */,
 				3B50D74228B54625004A9EA6 /* LoadingModalView.swift in Sources */,
 				3BCE62F628A6ACD80062E6F0 /* EmailValidationUseCase.swift in Sources */,
+				3B50D74F28B55340004A9EA6 /* FormLoadingView.swift in Sources */,
 				3BA319C128A4580E009F1C58 /* MovieUI.xcdatamodeld in Sources */,
 				3B50D74A28B55016004A9EA6 /* WallpaperLoginView.swift in Sources */,
 				3B50D74028B545DF004A9EA6 /* ViewValues.swift in Sources */,
