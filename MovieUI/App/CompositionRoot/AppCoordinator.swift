@@ -12,7 +12,7 @@ protocol Coordinator {
 }
 
 protocol AppCoordinator {
-    func goHome() -> AnyView
+    func goMainTab() -> AnyView
     func goLogin(modalLogin: Binding<Bool>) -> AnyView
 }
 
@@ -30,8 +30,8 @@ final class AppCoordinatorImpl: Coordinator  {
 }
 
 extension AppCoordinatorImpl: AppCoordinator {
-    func goHome() -> AnyView {
-        let coordinator = HomeCoordinator(appFactory: appFactory)
+    func goMainTab() -> AnyView {
+        let coordinator = MainTabCoordinator(mainTabFactory: appFactory)
         return coordinator.start()
     }
     

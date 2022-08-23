@@ -8,11 +8,15 @@
 import SwiftUI
 import Combine
 
-protocol AppFactory {
+protocol AppFactory: MainTabFactory {
     func makeAppRootView(coordinator: AppCoordinator) -> AnyView
     func makeLogin(modalLogin: Binding<Bool>) -> AnyView
     func makeHome() -> AnyView
     
+}
+
+protocol MainTabFactory {
+    func makeTab() -> AnyView
 }
 
 struct AppFactoryImpl: AppFactory {
@@ -46,4 +50,13 @@ struct AppFactoryImpl: AppFactory {
         let view = HomeView(viewModel: viewModel)
         return AnyView(view)
     }
+}
+
+extension AppFactoryImpl: MainTabFactory {
+    func makeTab() -> AnyView {
+        let view = MainTabView()
+        return AnyView(view)
+    }
+    
+    
 }

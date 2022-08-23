@@ -20,7 +20,7 @@ struct AppRootBodyView: View {
                     .bold()
                     .foregroundColor(.white)
                 ProgressView()
-                NavigationLink(destination: SafeView { coordinator.goHome() },isActive: $viewModel.toHome, label: {EmptyView() })
+                NavigationLink(destination: SafeView { coordinator.goMainTab() },isActive: $viewModel.toHome, label: {EmptyView() })
             }
         }
         .hiddenNavigationBarStyle()

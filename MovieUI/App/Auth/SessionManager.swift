@@ -16,7 +16,7 @@ protocol SessionManager {
 final class SessionManagerImpl: SessionManager  {
 
     
-    var isLogged: Binding<Bool> = .constant(false)
+    var isLogged: Binding<Bool> = .constant(true)
     
     func logOut() {
         isLogged = .constant(false)

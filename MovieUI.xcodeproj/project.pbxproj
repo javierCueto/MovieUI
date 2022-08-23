@@ -28,6 +28,8 @@
 		3B50D75828B580A8004A9EA6 /* SafeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50D75728B580A8004A9EA6 /* SafeView.swift */; };
 		3B50D75A28B580DE004A9EA6 /* AppRootBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50D75928B580DE004A9EA6 /* AppRootBodyView.swift */; };
 		3B50D76228B582C3004A9EA6 /* CheckIsLoggedUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50D76128B582C3004A9EA6 /* CheckIsLoggedUseCase.swift */; };
+		3B50D76828B58B96004A9EA6 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50D76728B58B96004A9EA6 /* MainTabView.swift */; };
+		3B50D76C28B58BF0004A9EA6 /* MainTabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50D76B28B58BF0004A9EA6 /* MainTabCoordinator.swift */; };
 		3BA319B528A45809009F1C58 /* MovieUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA319B428A45809009F1C58 /* MovieUIApp.swift */; };
 		3BA319B728A45809009F1C58 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA319B628A45809009F1C58 /* ContentView.swift */; };
 		3BA319B928A4580E009F1C58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BA319B828A4580E009F1C58 /* Assets.xcassets */; };
@@ -75,6 +77,8 @@
 		3B50D75728B580A8004A9EA6 /* SafeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeView.swift; sourceTree = "<group>"; };
 		3B50D75928B580DE004A9EA6 /* AppRootBodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootBodyView.swift; sourceTree = "<group>"; };
 		3B50D76128B582C3004A9EA6 /* CheckIsLoggedUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckIsLoggedUseCase.swift; sourceTree = "<group>"; };
+		3B50D76728B58B96004A9EA6 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		3B50D76B28B58BF0004A9EA6 /* MainTabCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabCoordinator.swift; sourceTree = "<group>"; };
 		3BA319B128A45809009F1C58 /* MovieUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BA319B428A45809009F1C58 /* MovieUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieUIApp.swift; sourceTree = "<group>"; };
 		3BA319B628A45809009F1C58 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -140,6 +144,7 @@
 		3B25BAF628A56E0B005DA52F /* CompositionRoot */ = {
 			isa = PBXGroup;
 			children = (
+				3B50D76928B58BD4004A9EA6 /* MainTab */,
 				3B50D69628AEC490004A9EA6 /* Home */,
 				3B25BAF728A56E24005DA52F /* AppFactory.swift */,
 				3BAEEA1B28AD9C6400B18525 /* AppCoordinator.swift */,
@@ -309,6 +314,38 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		3B50D76428B58B1B004A9EA6 /* MainTab */ = {
+			isa = PBXGroup;
+			children = (
+				3B50D76628B58B87004A9EA6 /* Domain */,
+				3B50D76528B58B7F004A9EA6 /* Presentation */,
+			);
+			path = MainTab;
+			sourceTree = "<group>";
+		};
+		3B50D76528B58B7F004A9EA6 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				3B50D76728B58B96004A9EA6 /* MainTabView.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		3B50D76628B58B87004A9EA6 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		3B50D76928B58BD4004A9EA6 /* MainTab */ = {
+			isa = PBXGroup;
+			children = (
+				3B50D76B28B58BF0004A9EA6 /* MainTabCoordinator.swift */,
+			);
+			path = MainTab;
+			sourceTree = "<group>";
+		};
 		3BA319A828A45808009F1C58 = {
 			isa = PBXGroup;
 			children = (
@@ -390,6 +427,7 @@
 		3BA319E628A4595F009F1C58 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				3B50D76428B58B1B004A9EA6 /* MainTab */,
 				3B25965E28AEB3E100E8CFE5 /* AppRootView */,
 				3BAEEA1D28AE8D6100B18525 /* LauchScreen */,
 				3BAEEA1828AD9B1300B18525 /* Home */,
@@ -539,6 +577,7 @@
 				3B50D75528B56189004A9EA6 /* EnableButtonLoginUseCase.swift in Sources */,
 				3BAEEA1C28AD9C6400B18525 /* AppCoordinator.swift in Sources */,
 				3B50D76228B582C3004A9EA6 /* CheckIsLoggedUseCase.swift in Sources */,
+				3B50D76828B58B96004A9EA6 /* MainTabView.swift in Sources */,
 				3B50D6A328B00C07004A9EA6 /* HomeViewModel.swift in Sources */,
 				3B50D74D28B55064004A9EA6 /* CImageIcon.swift in Sources */,
 				3BA319BE28A4580E009F1C58 /* Persistence.swift in Sources */,
@@ -554,6 +593,7 @@
 				3BCE62F628A6ACD80062E6F0 /* EmailValidationUseCase.swift in Sources */,
 				3B50D74F28B55340004A9EA6 /* FormLoadingView.swift in Sources */,
 				3BA319C128A4580E009F1C58 /* MovieUI.xcdatamodeld in Sources */,
+				3B50D76C28B58BF0004A9EA6 /* MainTabCoordinator.swift in Sources */,
 				3B50D74A28B55016004A9EA6 /* WallpaperLoginView.swift in Sources */,
 				3B50D74028B545DF004A9EA6 /* ViewValues.swift in Sources */,
 				3B25BAF828A56E24005DA52F /* AppFactory.swift in Sources */,
