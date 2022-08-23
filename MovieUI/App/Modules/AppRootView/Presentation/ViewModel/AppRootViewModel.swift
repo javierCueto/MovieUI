@@ -10,25 +10,23 @@ import Combine
 final class AppRootViewModel: ObservableObject{
     
     @Published var toHome: Bool = false
-    @Published var modalLogin: Bool = false
-    {
+    @Published var modalLogin: Bool = false {
         didSet {
-  
-            toHome = sessionManager.isLogged.wrappedValue
-           // print("updating value home", toHome)
+            toHome = checkIsLoggedUseCase.isLogged()
         }
     }
-    var backRootView: PassthroughSubject<Bool, Never>
-    let sessionManager: SessionManager
     
-    init(sessionManager: SessionManager, backRootView: PassthroughSubject<Bool, Never> ) {
-        self.sessionManager = sessionManager
+    var backRootView: PassthroughSubject<Bool, Never>
+    private let checkIsLoggedUseCase: CheckIsLoggedUseCase
+    
+    init(checkIsLoggedUseCase: CheckIsLoggedUseCase, backRootView: PassthroughSubject<Bool, Never> ) {
+        self.checkIsLoggedUseCase = checkIsLoggedUseCase
         self.backRootView = backRootView
         onAppear()
     }
     
     func onAppear(){
-        modalLogin = !sessionManager.isLogged.wrappedValue
+        modalLogin = !checkIsLoggedUseCase.isLogged()
     }
     
 }

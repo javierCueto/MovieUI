@@ -15,13 +15,15 @@ protocol AppFactory {
     
 }
 
-
 struct AppFactoryImpl: AppFactory {
     let sessionManager = SessionManagerImpl()
     var backRootView = PassthroughSubject<Bool, Never>()
     
     func makeAppRootView(coordinator: AppCoordinator) -> AnyView {
-        let viewModel = AppRootViewModel(sessionManager: sessionManager, backRootView: backRootView)
+        let checkIsLoggedUseCase = CheckIsLoggedUseCaseImpl(sessionManager: sessionManager)
+        let viewModel = AppRootViewModel(
+            checkIsLoggedUseCase: checkIsLoggedUseCase,
+            backRootView: backRootView)
         let view = AppRootView(viewModel: viewModel, coordinator: coordinator)
         return AnyView(view)
     }
@@ -35,16 +37,13 @@ struct AppFactoryImpl: AppFactory {
             loginUseCase: loginUseCase,
             enableButtonLoginUseCase: enableButtonLoginUseCase)
         let view = LoginView(viewModel: viewModel)
-        
         return AnyView(view)
     }
     
     
     func makeHome() -> AnyView {
-        print("home was created on factory_________")
         let viewModel = HomeViewModelImpl(sessionManager: sessionManager, backRootView: backRootView)
         let view = HomeView(viewModel: viewModel)
-        
         return AnyView(view)
     }
 }
