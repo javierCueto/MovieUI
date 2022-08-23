@@ -11,23 +11,12 @@ import SwiftUI
 
 struct LoginView: View {
     @StateObject var viewModel: LoginViewModel
-    
     @Environment(\.presentationMode) var dismiss
+    
     var body: some View {
         ZStack {
             if $viewModel.showingModal.wrappedValue {
-                ZStack {
-                    Color.black.opacity(0.5)
-                    
-                        .ignoresSafeArea()
-                    // This VStack is the popup
-                    ProgressView("Loading ...")
-                        .frame(width: 200, height: 100)
-                        .background(Color.white)
-                        .cornerRadius(20).shadow(radius: 20)
-                }
-                .zIndex(2)
-                
+                LoadingModalView()
             }
             
             if $viewModel.showingModal.wrappedValue {
