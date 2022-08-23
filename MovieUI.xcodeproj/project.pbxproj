@@ -123,9 +123,8 @@
 		3B25BAF528A56DFB005DA52F /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				3BCE62F228A6A8F50062E6F0 /* UseCase */,
-				3BCE62EF28A6A1090062E6F0 /* ViewModel */,
-				3B25BAF928A56FFE005DA52F /* View */,
+				3B50D75328B55A7A004A9EA6 /* Domain */,
+				3B50D75228B55A62004A9EA6 /* Presentation */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -217,6 +216,23 @@
 				3B50D74C28B55064004A9EA6 /* CImageIcon.swift */,
 			);
 			path = CImagesIcon;
+			sourceTree = "<group>";
+		};
+		3B50D75228B55A62004A9EA6 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				3BCE62EF28A6A1090062E6F0 /* ViewModel */,
+				3B25BAF928A56FFE005DA52F /* View */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		3B50D75328B55A7A004A9EA6 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				3BCE62F228A6A8F50062E6F0 /* UseCases */,
+			);
+			path = Domain;
 			sourceTree = "<group>";
 		};
 		3BA319A828A45808009F1C58 = {
@@ -331,15 +347,16 @@
 				3BCE62F028A6A11F0062E6F0 /* LoginViewModel.swift */,
 			);
 			name = ViewModel;
+			path = ..;
 			sourceTree = "<group>";
 		};
-		3BCE62F228A6A8F50062E6F0 /* UseCase */ = {
+		3BCE62F228A6A8F50062E6F0 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
 				3BCE62F328A6A90B0062E6F0 /* LoginUseCase.swift */,
 				3BCE62F528A6ACD80062E6F0 /* EmailValidationUseCase.swift */,
 			);
-			path = UseCase;
+			path = UseCases;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
