@@ -24,8 +24,6 @@ struct LoginView: View {
             )
         }.navigationBarBackButtonHidden(true)
             .hiddenNavigationBarStyle()
-        
-        
     }
 }
 
