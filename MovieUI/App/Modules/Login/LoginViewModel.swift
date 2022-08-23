@@ -11,20 +11,20 @@ import SwiftUI
 final class LoginViewModel: ObservableObject{
     
     // MARK: - Public properties
-    @Published var email: String = "" {
+    @Published var email: String = String() {
         didSet {
             buttonDisabled = enableButtonLoginUseCase.execute(email: email, password: password)
         }
     }
     
-    @Published var password: String = "" {
+    @Published var password: String = String() {
         didSet {
             buttonDisabled = enableButtonLoginUseCase.execute(email: email, password: password)
         }
     }
     
     @Published var showingModal: Bool = false
-    @Published var showMessage: String = ""
+    @Published var showMessage: String = String()
     @Published var showingAlertModal: Bool = false
     @Published var buttonDisabled: Bool = true
     
@@ -41,28 +41,22 @@ final class LoginViewModel: ObservableObject{
         self.modalLogin = modalLogin
         self.loginUseCase = loginUseCase
         self.enableButtonLoginUseCase = enableButtonLoginUseCase
-        print("loging was instance too")
+        debugPrint("login was instance too")
     }
     
     func login(){
-        
         showingModal = true
-        
         Task {
             let response = await loginUseCase.execute(password: password, email: email)
-            
             await MainActor.run {
                 if(response.valid){
                     modalLogin.wrappedValue = false
                 }
-                
                 showingModal = false
                 showingAlertModal = !response.valid
                 showMessage = response.message
             }
             
         }
-        
-        
     }
 }

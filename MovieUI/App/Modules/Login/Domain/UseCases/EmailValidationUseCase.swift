@@ -7,7 +7,11 @@
 
 import Foundation
 
-final class EmailValidationUseCaseImpl {
+protocol EmailValidationUseCase {
+    func textFieldValidatorEmail(_ string: String) -> Bool
+}
+
+final class EmailValidationUseCaseImpl: EmailValidationUseCase {
     
     func textFieldValidatorEmail(_ string: String) -> Bool {
         if string.count > 100 {

@@ -10,8 +10,12 @@ protocol EnableButtonLoginUseCase {
 }
 
 struct EnableButtonLoginUseCaseImpl: EnableButtonLoginUseCase {
-    private var emailValidationUseCase = EmailValidationUseCaseImpl()
+    private let emailValidationUseCase: EmailValidationUseCase
     private var validEmail = false
+    
+    init(emailValidationUseCase: EmailValidationUseCase) {
+        self.emailValidationUseCase = emailValidationUseCase
+    }
     
     mutating func execute(email: String, password: String) -> Bool {
         validEmail = emailValidationUseCase.textFieldValidatorEmail(email)

@@ -28,7 +28,8 @@ struct AppFactoryImpl: AppFactory {
     
     func makeLogin(modalLogin: Binding<Bool>) -> AnyView {
         let loginUseCase = LoginUseCaseImpl(sessionManager: sessionManager)
-        let enableButtonLoginUseCase = EnableButtonLoginUseCaseImpl()
+        let emailValidationUseCase = EmailValidationUseCaseImpl()
+        let enableButtonLoginUseCase = EnableButtonLoginUseCaseImpl(emailValidationUseCase: emailValidationUseCase)
         let viewModel = LoginViewModel(
             modalLogin: modalLogin,
             loginUseCase: loginUseCase,
