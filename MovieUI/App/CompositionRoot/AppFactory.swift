@@ -11,15 +11,14 @@ import Combine
 protocol AppFactory: MainTabFactory {
     func makeAppRootView(coordinator: AppCoordinator) -> AnyView
     func makeLogin(modalLogin: Binding<Bool>) -> AnyView
-    func makeHome() -> AnyView
     
 }
 
-protocol MainTabFactory {
-    func makeTab() -> AnyView
+protocol MainTabFactory: AnyObject {
+    func makeTab(coordinator: MainTabCoordinator) -> AnyView
 }
 
-struct AppFactoryImpl: AppFactory {
+final class AppFactoryImpl: AppFactory {
     let sessionManager = SessionManagerImpl()
     var backRootView = PassthroughSubject<Bool, Never>()
     
@@ -44,17 +43,12 @@ struct AppFactoryImpl: AppFactory {
         return AnyView(view)
     }
     
-    
-    func makeHome() -> AnyView {
-        let viewModel = HomeViewModelImpl(sessionManager: sessionManager, backRootView: backRootView)
-        let view = HomeView(viewModel: viewModel)
-        return AnyView(view)
-    }
 }
 
 extension AppFactoryImpl: MainTabFactory {
-    func makeTab() -> AnyView {
-        let view = MainTabView()
+    
+    func makeTab(coordinator: MainTabCoordinator) -> AnyView {
+        let view = MainTabView(coordinator: coordinator)
         return AnyView(view)
     }
     

@@ -31,7 +31,7 @@ final class AppCoordinatorImpl: Coordinator  {
 
 extension AppCoordinatorImpl: AppCoordinator {
     func goMainTab() -> AnyView {
-        let coordinator = MainTabCoordinator(mainTabFactory: appFactory)
+        let coordinator = MainTabCoordinatorImpl(mainTabFactory: appFactory)
         return coordinator.start()
     }
     

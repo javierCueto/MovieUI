@@ -8,15 +8,18 @@
 import SwiftUI
 
 struct MainTabView: View {
+    
+    var coordinator: MainTabCoordinator
+    
     var body: some View {
         TabView {
-            TestView()
+            SafeView { coordinator.homeModule() }
                 .tabItem {
                     Image(systemName: "house.fill")
                     Text("Home")
                 }
             
-            TestView()
+            SafeView { coordinator.homeModule()}
                 .tabItem {
                     Image(systemName: "magnifyingglass")
                     Text("Search")
@@ -24,11 +27,5 @@ struct MainTabView: View {
         }.navigationBarTitleDisplayMode(.inline)
             .navigationTitle("Movies UI")
             .navigationBarBackButtonHidden(true)
-    }
-}
-
-struct MainTabView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainTabView()
     }
 }

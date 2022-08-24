@@ -7,16 +7,23 @@
 
 import SwiftUI
 
-final class HomeCoordinator: Coordinator {
-    private let appFactory: AppFactory
+protocol HomeCoordinator {
     
-    init(appFactory: AppFactory){
-        self.appFactory = appFactory
+}
+
+final class HomeCoordinatorImpl: Coordinator {
+    private let homeFactory: HomeFactory
+    
+    init(homeFactory: HomeFactory){
+        self.homeFactory = homeFactory
     }
     
     func start() -> AnyView {
-        appFactory.makeHome()
+        homeFactory.makeHome()
     }
     
+}
+
+extension HomeCoordinatorImpl: HomeCoordinator {
     
 }

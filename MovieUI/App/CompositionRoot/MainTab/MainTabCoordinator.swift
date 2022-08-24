@@ -7,15 +7,32 @@
 
 import SwiftUI
 
-final class MainTabCoordinator: Coordinator {
-    private let mainTabFactory: MainTabFactory
+protocol MainTabCoordinator {
+    func homeModule() -> AnyView
+    func searSearch() -> AnyView
+}
+
+final class MainTabCoordinatorImpl: Coordinator {
+    private weak var mainTabFactory: MainTabFactory?
     
     init(mainTabFactory: MainTabFactory){
         self.mainTabFactory = mainTabFactory
     }
     
     func start() -> AnyView {
-        mainTabFactory.makeTab()
+        mainTabFactory?.makeTab(coordinator: self) ?? AnyView(EmptyView())
+    }
+}
+
+extension MainTabCoordinatorImpl: MainTabCoordinator {
+    func homeModule() -> AnyView {
+        guard let homeFactory = mainTabFactory as? HomeFactory else { return AnyView(EmptyView()) }
+        let coordinator = HomeCoordinatorImpl(homeFactory: homeFactory)
+        return coordinator.start()
+    }
+    
+    func searSearch() -> AnyView {
+        AnyView(EmptyView())
     }
     
 }
