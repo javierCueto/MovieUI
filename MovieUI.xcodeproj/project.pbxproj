@@ -31,6 +31,9 @@
 		3B50D76828B58B96004A9EA6 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50D76728B58B96004A9EA6 /* MainTabView.swift */; };
 		3B50D76C28B58BF0004A9EA6 /* MainTabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50D76B28B58BF0004A9EA6 /* MainTabCoordinator.swift */; };
 		3B50D76F28B67FB0004A9EA6 /* AppFactory+Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50D76E28B67FB0004A9EA6 /* AppFactory+Home.swift */; };
+		3B50D77128B6A1CF004A9EA6 /* AppFactory+MainTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50D77028B6A1CF004A9EA6 /* AppFactory+MainTab.swift */; };
+		3B50D77628B6A226004A9EA6 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50D77528B6A226004A9EA6 /* Coordinator.swift */; };
+		3B50D77A28B6A404004A9EA6 /* LogoutUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B50D77928B6A404004A9EA6 /* LogoutUseCase.swift */; };
 		3BA319B528A45809009F1C58 /* MovieUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA319B428A45809009F1C58 /* MovieUIApp.swift */; };
 		3BA319B728A45809009F1C58 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA319B628A45809009F1C58 /* ContentView.swift */; };
 		3BA319B928A4580E009F1C58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BA319B828A4580E009F1C58 /* Assets.xcassets */; };
@@ -81,6 +84,9 @@
 		3B50D76728B58B96004A9EA6 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		3B50D76B28B58BF0004A9EA6 /* MainTabCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabCoordinator.swift; sourceTree = "<group>"; };
 		3B50D76E28B67FB0004A9EA6 /* AppFactory+Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppFactory+Home.swift"; sourceTree = "<group>"; };
+		3B50D77028B6A1CF004A9EA6 /* AppFactory+MainTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppFactory+MainTab.swift"; sourceTree = "<group>"; };
+		3B50D77528B6A226004A9EA6 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		3B50D77928B6A404004A9EA6 /* LogoutUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutUseCase.swift; sourceTree = "<group>"; };
 		3BA319B128A45809009F1C58 /* MovieUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BA319B428A45809009F1C58 /* MovieUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieUIApp.swift; sourceTree = "<group>"; };
 		3BA319B628A45809009F1C58 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -151,6 +157,7 @@
 				3B25BAF728A56E24005DA52F /* AppFactory.swift */,
 				3BAEEA1B28AD9C6400B18525 /* AppCoordinator.swift */,
 				3B50D76E28B67FB0004A9EA6 /* AppFactory+Home.swift */,
+				3B50D77028B6A1CF004A9EA6 /* AppFactory+MainTab.swift */,
 			);
 			path = CompositionRoot;
 			sourceTree = "<group>";
@@ -178,6 +185,7 @@
 		3B50D69928AEC855004A9EA6 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				3B50D77228B6A209004A9EA6 /* Protocols */,
 				3B50D75628B57FEC004A9EA6 /* Views */,
 				3B50D74628B54892004A9EA6 /* Extensions */,
 				3B50D74328B546EE004A9EA6 /* Localizables */,
@@ -349,6 +357,39 @@
 			path = MainTab;
 			sourceTree = "<group>";
 		};
+		3B50D77228B6A209004A9EA6 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				3B50D77328B6A213004A9EA6 /* Navigation */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		3B50D77328B6A213004A9EA6 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				3B50D77528B6A226004A9EA6 /* Coordinator.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		3B50D77728B6A3DF004A9EA6 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				3BAEEA1928AD9B2400B18525 /* HomeView.swift */,
+				3B50D6A228B00C07004A9EA6 /* HomeViewModel.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		3B50D77828B6A3EF004A9EA6 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				3B50D77928B6A404004A9EA6 /* LogoutUseCase.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
 		3BA319A828A45808009F1C58 = {
 			isa = PBXGroup;
 			children = (
@@ -443,8 +484,8 @@
 		3BAEEA1828AD9B1300B18525 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				3BAEEA1928AD9B2400B18525 /* HomeView.swift */,
-				3B50D6A228B00C07004A9EA6 /* HomeViewModel.swift */,
+				3B50D77828B6A3EF004A9EA6 /* Domain */,
+				3B50D77728B6A3DF004A9EA6 /* Presentation */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -580,6 +621,7 @@
 				3B50D75528B56189004A9EA6 /* EnableButtonLoginUseCase.swift in Sources */,
 				3BAEEA1C28AD9C6400B18525 /* AppCoordinator.swift in Sources */,
 				3B50D76228B582C3004A9EA6 /* CheckIsLoggedUseCase.swift in Sources */,
+				3B50D77128B6A1CF004A9EA6 /* AppFactory+MainTab.swift in Sources */,
 				3B50D76828B58B96004A9EA6 /* MainTabView.swift in Sources */,
 				3B50D6A328B00C07004A9EA6 /* HomeViewModel.swift in Sources */,
 				3B50D74D28B55064004A9EA6 /* CImageIcon.swift in Sources */,
@@ -603,7 +645,9 @@
 				3B25BAF828A56E24005DA52F /* AppFactory.swift in Sources */,
 				3BA319B528A45809009F1C58 /* MovieUIApp.swift in Sources */,
 				3B50D75128B55812004A9EA6 /* FieldFormLoadingView.swift in Sources */,
+				3B50D77628B6A226004A9EA6 /* Coordinator.swift in Sources */,
 				3B50D74528B54704004A9EA6 /* AppLocalizable.swift in Sources */,
+				3B50D77A28B6A404004A9EA6 /* LogoutUseCase.swift in Sources */,
 				3BCE62F428A6A90B0062E6F0 /* LoginUseCase.swift in Sources */,
 				3BAEEA1F28AE8D7700B18525 /* AppRootView.swift in Sources */,
 				3B50D74828B548A4004A9EA6 /* String+Localized.swift in Sources */,

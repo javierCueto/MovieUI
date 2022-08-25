@@ -5,18 +5,13 @@
 //  Created by Javier Cueto on 17/08/22.
 //
 
-
 import SwiftUI
-protocol Coordinator {
-    func start() -> AnyView
-}
-
 protocol AppCoordinator {
     func goMainTab() -> AnyView
     func goLogin(modalLogin: Binding<Bool>) -> AnyView
 }
 
-final class AppCoordinatorImpl: Coordinator  {
+class AppCoordinatorImpl: Coordinator  {
     private let appFactory: AppFactory
     
     init(appFactory: AppFactory){

@@ -13,12 +13,15 @@ struct AppRootView: View {
     var body: some View {
         NavigationView {
             AppRootBodyView(viewModel: viewModel, coordinator: coordinator)
-        }.fullScreenCover(isPresented: $viewModel.modalLogin) {
+        }.navigationViewStyle(StackNavigationViewStyle())
+        .fullScreenCover(isPresented: $viewModel.modalLogin) {
             SafeView { coordinator.goLogin(modalLogin: $viewModel.modalLogin) }
         }
         .onReceive(viewModel.backRootView) { value in
             viewModel.onAppear()
         }
+        
+        Print("was recreated")
         
     }
 }

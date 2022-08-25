@@ -13,7 +13,8 @@ protocol HomeFactory {
 
 extension AppFactoryImpl: HomeFactory {
     func makeHome() -> AnyView {
-        let viewModel = HomeViewModelImpl(sessionManager: sessionManager, backRootView: backRootView)
+        let logoutUseCase = LogoutUseCaseImpl(sessionManager: sessionManager)
+        let viewModel = HomeViewModelImpl(logoutUseCase: logoutUseCase, backRootView: backRootView)
         let view = HomeView(viewModel: viewModel)
         return AnyView(view)
     }

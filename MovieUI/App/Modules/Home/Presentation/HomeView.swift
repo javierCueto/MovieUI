@@ -9,6 +9,11 @@ import SwiftUI
 
 struct HomeView: View {
     let viewModel: HomeViewModel
+    
+    init(viewModel: HomeViewModel) {
+        self.viewModel = viewModel
+        print("HomeView was started")
+    }
     @Environment(\.presentationMode) var dismiss
     var body: some View {
         NavigationView {
@@ -27,5 +32,6 @@ struct HomeView: View {
         }.navigationBarTitleDisplayMode(.inline)
         .navigationTitle("Movies UI")
         .navigationBarBackButtonHidden(true)
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }

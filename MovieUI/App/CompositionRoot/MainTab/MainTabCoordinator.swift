@@ -13,14 +13,18 @@ protocol MainTabCoordinator {
 }
 
 final class MainTabCoordinatorImpl: Coordinator {
-    private weak var mainTabFactory: MainTabFactory?
+    private var mainTabFactory: MainTabFactory
     
     init(mainTabFactory: MainTabFactory){
         self.mainTabFactory = mainTabFactory
     }
     
     func start() -> AnyView {
-        mainTabFactory?.makeTab(coordinator: self) ?? AnyView(EmptyView())
+        mainTabFactory.makeTab(coordinator: self) //?? AnyView(EmptyView())
+    }
+    
+    deinit {
+        print("MainTabCoordinatorImpl was deinit")
     }
 }
 

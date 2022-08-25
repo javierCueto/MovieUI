@@ -19,7 +19,7 @@ struct MainTabView: View {
                     Text("Home")
                 }
             
-            SafeView { coordinator.homeModule()}
+            SafeView { EmptyView()}
                 .tabItem {
                     Image(systemName: "magnifyingglass")
                     Text("Search")
@@ -27,5 +27,6 @@ struct MainTabView: View {
         }.navigationBarTitleDisplayMode(.inline)
             .navigationTitle("Movies UI")
             .navigationBarBackButtonHidden(true)
+            .navigationViewStyle(StackNavigationViewStyle())
     }
 }

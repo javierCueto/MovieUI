@@ -14,11 +14,8 @@ protocol AppFactory: MainTabFactory {
     
 }
 
-protocol MainTabFactory: AnyObject {
-    func makeTab(coordinator: MainTabCoordinator) -> AnyView
-}
 
-final class AppFactoryImpl: AppFactory {
+struct AppFactoryImpl: AppFactory {
     let sessionManager = SessionManagerImpl()
     var backRootView = PassthroughSubject<Bool, Never>()
     
@@ -38,19 +35,10 @@ final class AppFactoryImpl: AppFactory {
         let viewModel = LoginViewModel(
             modalLogin: modalLogin,
             loginUseCase: loginUseCase,
-            enableButtonLoginUseCase: enableButtonLoginUseCase)
+            enableButtonLoginUseCase: enableButtonLoginUseCase, backRootView: backRootView)
         let view = LoginView(viewModel: viewModel)
         return AnyView(view)
     }
     
 }
 
-extension AppFactoryImpl: MainTabFactory {
-    
-    func makeTab(coordinator: MainTabCoordinator) -> AnyView {
-        let view = MainTabView(coordinator: coordinator)
-        return AnyView(view)
-    }
-    
-    
-}
