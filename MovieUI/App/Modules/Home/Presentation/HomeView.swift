@@ -32,6 +32,6 @@ struct HomeView: View {
         }.navigationBarTitleDisplayMode(.inline)
         .navigationTitle("Movies UI")
         .navigationBarBackButtonHidden(true)
-        .navigationViewStyle(StackNavigationViewStyle())
+        //.navigationViewStyle(StackNavigationViewStyle())
     }
 }
